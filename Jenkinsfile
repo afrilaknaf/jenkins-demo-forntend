@@ -5,7 +5,7 @@ pipeline{
         stage("Checkout"){
             steps{
                 git branch : "master",
-                url : "https://github.com/afrilaknaf/jenkins-demo-forntend.git",
+                url : "https://github.com/afrilaknaf/jenkins-demo-forntend.git"
             }
         }
 
@@ -68,11 +68,9 @@ pipeline{
 
 
         stage("Archive"){
-            steps{
-                bat '''
+            steps{     
                 archiveArtifacts artifacts: 'dist/**', fingerprint: true
-                '''
-            }
+                }
         }
     }
 
