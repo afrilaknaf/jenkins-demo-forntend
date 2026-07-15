@@ -76,13 +76,7 @@ pipeline{
         }
 
 
-        stage("Node Check") {
-    steps {
-        sh '''
-        node -v
-        npm -v
-        '''
-    }
+     
 }
     }
 
