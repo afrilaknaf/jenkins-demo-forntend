@@ -1,7 +1,7 @@
 function App() {
     return (
         <div className="container">
-            <h1>Jenkins Frontend Demo</h1>
+            <h1>Jenkins Frontend automatically i was CI</h1>
 
             <p>
                 React application built using Jenkins Pipeline
