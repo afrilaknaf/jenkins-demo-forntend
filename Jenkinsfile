@@ -57,7 +57,7 @@ pipeline{
             steps{
                 sh '''
                 echo Check the dist folder
-                if [ ! -d dist ]; then
+                if [ -d dist ]; then
                     echo "Build Successfully"
                     ls -la dist
                 else 
