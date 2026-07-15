@@ -11,7 +11,7 @@ pipeline{
 
         stage("Validate"){
             steps{
-                bat '''
+                sh '''
                 echo Validate the forntend 
                 if not exist package.json (
                     echo Failed package.json is not
@@ -34,16 +34,16 @@ pipeline{
 
         stage("Install"){
             steps{
-                bat '''  
+                sh '''  
                 echo Install Node.js Depencies 
-                npm install
+                npm ci
                 '''
             }
         }
 
         stage("Build React App"){
             steps{
-                bat '''
+                sh '''
                 echo Build the react project
                 npm run build
                 '''
@@ -53,7 +53,7 @@ pipeline{
 
         stage("CheckBuild"){
             steps{
-                bat '''
+                sh '''
                 echo Check the dist folder
                 if exist dist (
                     echo Build Successfully
