@@ -13,17 +13,17 @@ pipeline{
             steps{
                 sh '''
                 echo Validate the forntend 
-                if [! -f package.json ]; then
+                if [ ! -f package.json ]; then
                     echo "Failed package.json is not"
                     exit 1
                 fi
 
-                if [! -f index.html]; then
+                if [ ! -f index.html ]; then
                     echo "Failed index.html is not"
                     exit 1
                 fi
 
-                if [! -f vite.config.js];  then
+                if [ ! -f vite.config.js ];  then
                     echo "Failed vite.config.js is not"
                     exit 1
                 fi
@@ -57,7 +57,7 @@ pipeline{
             steps{
                 sh '''
                 echo Check the dist folder
-                if [! -d dist]; then
+                if [ ! -d dist ]; then
                     echo "Build Successfully"
                     ls -la dist
                 else 
@@ -74,6 +74,16 @@ pipeline{
                 archiveArtifacts artifacts: 'dist/**', fingerprint: true
                 }
         }
+
+
+        stage("Node Check") {
+    steps {
+        sh '''
+        node -v
+        npm -v
+        '''
+    }
+}
     }
 
 
